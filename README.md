@@ -16,3 +16,6 @@ Ketika kita membuka request user berupa 127.0.0.1/sleep, terdapat jeda 10 detik 
 
 ## Commit 5
 Thread pool adalah sejumlah worker yang bekerja di backend untuk menerima tasks dari request user. Setiap worker akan bekerja masing-masing sehingga sesuai dengan perubahan yang dilakukan pada milestone 5 ini, jika user mengirim request sleep yang harus menunggu 10 detik hingga selesai, ketika ada user kedua yang juga mengirim request, seharusnya ia juga akan menunggu 10 detik tersebut hingga selesai tanpa perubahan yang dilakukan pada milestone 5. Tetapi dengan tambahan Thread pool ini, terdapat beberapa worker yang dapat bekerja dalam satu waktu sehingga request kedua tidak harus menunggu request pertama selesai terlebih dahulu untuk dikerjakan.
+
+## Bonus
+build digunakan olhe developer untuk membuat object dengan cara yang lebih aman karena fungsi ini bisa melakukan validasi terlebih dahulu dan mengembalikan error jika input tidak sesuai. Dengan begitu, kesalahan seperti ukuran thread pool 0 bisa dideteksi dan ditangani tanpa membuat program error. Sementara itu, new biasanya digunakan ketika mengasumsikan bahwa input yang diberikan selalu valid, sehingga object bisa langsung dibuat tanpa mekanisme penanganan error.
